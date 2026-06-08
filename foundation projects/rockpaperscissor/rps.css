@@ -32,6 +32,10 @@ button{
     flex-direction: column;
     justify-content: space-evenly;
 }
+.choices{
+    display: flex;
+    flex-direction: column;
+}
 .computerscore{
     display: flex;
     flex-direction: column;
