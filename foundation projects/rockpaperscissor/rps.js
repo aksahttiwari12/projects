@@ -30,18 +30,29 @@ playbutton.addEventListener("click", function () {
 choicesbuttons.addEventListener("click", function () {
     playbutton.style.display = "";
     choicesbuttons.style.display = "none";
-    console.log("Parent is called");
 })
 
 rock.addEventListener("click", function () {
     playerchoice = "rock";
-    console.log(playerchoice);
+    checkwinner(playerchoice,computerchoice);
 })
 paper.addEventListener("click", function () {
     playerchoice = "paper";
-    console.log(playerchoice);
+    checkwinner(playerchoice,computerchoice);
 })
 scissor.addEventListener("click", function () {
     playerchoice = "scissor";
-    console.log(playerchoice);
+    checkwinner(playerchoice,computerchoice);
 })
+
+function checkwinner(playerchoice,computerchoice){
+  if(playerchoice == computerchoice){
+        alert("Draw");
+    }
+    else if(playerchoice == "rock" && computerchoice == "scissor" || playerchoice == "paper" && computerchoice == "rock" || playerchoice == "scissor" && computerchoice == "paper"){
+        alert("You win!!");
+    }
+    else{
+        alert("You lost!!");
+    }
+}
