@@ -7,8 +7,11 @@ let playerchoice;
 let computerchoice;
 let playerscore = 0;
 let computerscore = 0;
-
-
+let playerscoretext = document.getElementById("playerscoretext");
+let computerscoretext = document.getElementById("computerscoretext");
+let result = document.getElementById("result");
+let computerchose = document.getElementById("computerchose");
+let playerchose = document.getElementById("playerchose");
 playbutton.addEventListener("click", function () {
     let randomnum = Math.floor(Math.random() * 3);
     if (randomnum == 0) {
@@ -47,18 +50,22 @@ scissor.addEventListener("click", function () {
     checkwinner(playerchoice,computerchoice);
 })
 
-function checkwinner(playerchoice,computerchoice){
+function checkwinner(playerchoice,computerchoice){ 
+    playerchose.textContent = playerchoice;
+    computerchose.textContent = computerchoice;
   if(playerchoice == computerchoice){
-        alert("Draw");
+        result.textContent = "Draw";
     }
     else if(playerchoice == "rock" && computerchoice == "scissor" || playerchoice == "paper" && computerchoice == "rock" || playerchoice == "scissor" && computerchoice == "paper"){
-        alert("You win!!");
         playerscore++;
+        playerscoretext.textContent = `Score : ${playerscore}`;
+        result.textContent = "You Win!!";
+       
     }
     else{
-        alert("You lost!!");
         computerscore++;
+        computerscoretext.textContent = `Score : ${computerscore}`;
+        result.textContent = "You Lose!!";
+        
     }
-    console.log(playerscore);
-    console.log(computerscore);
 }
